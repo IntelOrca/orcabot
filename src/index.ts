@@ -1,6 +1,13 @@
 import { createBot } from "./bot.ts";
 import { loadConfig } from "./config.ts";
 
+// Load ./.env if present. Variables already set in the environment take precedence.
+try {
+  process.loadEnvFile?.();
+} catch {
+  // No .env file; rely on the environment.
+}
+
 let config;
 try {
   config = loadConfig(process.env);

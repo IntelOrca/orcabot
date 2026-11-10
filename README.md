@@ -32,7 +32,7 @@ Copy `.env.example` to `.env` and fill it in. Environment variables set in other
 | --- | --- | --- |
 | `DISCORD_TOKEN` | (required) | Bot token |
 | `MIN_CHANNELS` | `3` | Minimum number of different channels the same message must appear in to count as spam |
-| `MAX_DELTA_SECONDS` | `600` | All copies must be posted within this many seconds of each other |
+| `MAX_DELTA_SECONDS` | `300` | All copies must be posted within this many seconds of each other |
 | `TIMEOUT_MINUTES` | `15` | How long to time out the sender. `0` disables timeouts |
 | `SCAN_LOOKBACK_HOURS` | `24` | How far back to scan history on startup. `0` disables the scan |
 | `LOG_CHANNEL_ID` | (unset) | Channel ID where the bot reports deletions |
@@ -41,9 +41,15 @@ The bot keeps its state in memory, so a restart forgets messages it saw before. 
 
 ## Running
 
-### Prebuilt executable
+orcabot reads `.env` from the directory you run it from.
 
-Download the executable for your platform from [Releases](https://github.com/IntelOrca/orcabot/releases). Put a `.env` file next to it, or in the directory you run it from, and run it. You don't need Node or Bun installed.
+### Single-file bundle (recommended)
+
+Download `orcabot.js` from [Releases](https://github.com/IntelOrca/orcabot/releases) and run `node orcabot.js`. It is about 1.3 MB, includes every dependency, and needs Node.js 22.18 or newer.
+
+### Standalone executable
+
+[Releases](https://github.com/IntelOrca/orcabot/releases) also has executables for Linux, Windows and macOS that need neither Node nor Bun installed. They are about 100 MB each because they include the Bun runtime.
 
 ### From source
 
@@ -61,10 +67,11 @@ npm start
 npm run dev        # run from source without building (Node strips the types)
 npm test           # unit tests (node:test)
 npm run typecheck  # type check everything, including tests
-npm run build:exe  # build a single-file executable for this machine (requires Bun)
+npm run bundle     # build dist/orcabot.js, a single file with all dependencies (requires Bun)
+npm run build:exe  # build a standalone executable for this machine (requires Bun)
 ```
 
-Pushing a `v*` tag runs the release workflow. It builds executables for Linux, Windows and macOS with `bun build --compile` and attaches them to a GitHub release.
+Pushing a `v*` tag runs the release workflow. It builds `orcabot.js` and the executables for Linux, Windows and macOS, and attaches them to a GitHub release.
 
 ## License
 

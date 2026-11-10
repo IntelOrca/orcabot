@@ -19,9 +19,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: npm ci
       - run: npm test
-      - name: Build executables
+      - name: Build bundle and executables
         run: |
           mkdir -p release
+          bun build src/index.ts --target=node --minify --outfile release/orcabot.js
           for target in linux-x64 linux-arm64 windows-x64 darwin-x64 darwin-arm64; do
             ext=""; [ "$target" = "windows-x64" ] && ext=".exe"
             bun build src/index.ts --compile --minify --target="bun-$target" --outfile="release/orcabot-$target$ext"

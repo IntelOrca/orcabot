@@ -4,7 +4,7 @@ import { fingerprint, SpamDetector, type Post } from "./detector.ts";
 
 const SECOND = 1000;
 
-function detector(minChannels = 3, maxDeltaMs = 600 * SECOND) {
+function detector(minChannels = 3, maxDeltaMs = 300 * SECOND) {
   return new SpamDetector({ minChannels, maxDeltaMs });
 }
 

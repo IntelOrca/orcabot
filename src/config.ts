@@ -14,7 +14,7 @@ export interface Config {
 
 export const DEFAULTS = {
   MIN_CHANNELS: 3,
-  MAX_DELTA_SECONDS: 600,
+  MAX_DELTA_SECONDS: 300,
   TIMEOUT_MINUTES: 15,
   SCAN_LOOKBACK_HOURS: 24,
 } as const;

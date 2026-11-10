@@ -6,9 +6,10 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc",
     "test": "node --test \"src/**/*.test.ts\"",
-    "start": "node --env-file-if-exists=.env dist/index.js",
-    "dev": "node --env-file-if-exists=.env src/index.ts",
-    "build:exe": "bun build src/index.ts --compile --minify --outfile orcabot"
+    "start": "node dist/index.js",
+    "dev": "node src/index.ts",
+    "build:exe": "bun build src/index.ts --compile --minify --outfile orcabot",
+    "bundle": "bun build src/index.ts --target=node --minify --outfile dist/orcabot.js"
   },
   "keywords": [
     "discord",

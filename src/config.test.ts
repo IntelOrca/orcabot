@@ -12,7 +12,7 @@ describe("loadConfig", () => {
     assert.deepEqual(loadConfig({ DISCORD_TOKEN: "t" }), {
       token: "t",
       minChannels: 3,
-      maxDeltaMs: 600_000,
+      maxDeltaMs: 300_000,
       timeoutMs: 15 * 60_000,
       scanLookbackMs: 24 * 3_600_000,
       logChannelId: undefined,
