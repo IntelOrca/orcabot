@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.log
+bot.pid
+/orcabot
+/orcabot.exe
+/release/

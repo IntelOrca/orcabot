@@ -1,0 +1,36 @@
+{
+  "name": "orcabot",
+  "version": "1.0.0",
+  "description": "Discord bot that deletes messages cross-posted to several channels and times out the sender",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "dev": "node --env-file-if-exists=.env src/index.ts",
+    "build:exe": "bun build src/index.ts --compile --minify --outfile orcabot"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "moderation",
+    "spam"
+  ],
+  "author": "IntelOrca",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "discord.js": "^14.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntelOrca/orcabot.git"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
